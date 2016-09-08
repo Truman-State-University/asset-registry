@@ -1,0 +1,17 @@
+{
+    "name": "its-web-wordpress/asset-registry-plugin",
+    "description": "Provides a registry of CSS and Javascript assets.",
+    "minimum-stability": "stable",
+    "license": "BSD 3",
+    "authors": [
+        {
+            "name": "Curtis Kelsey",
+            "email": "kelseyc@truman.edu"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "AssetRegistryPlugin\\": "src"
+        }
+    }
+}

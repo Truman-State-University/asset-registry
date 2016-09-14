@@ -61,6 +61,20 @@ class AssetRegistry
         return $this->javascriptAssets;
     }
 
+    public function getRegisteredJsAssets()
+    {
+        global $wp_scripts;
+
+        return $wp_scripts->registered;
+    }
+
+    public function getRegisteredCssAssets()
+    {
+        global $wp_styles;
+
+        return $wp_styles->registered;
+    }
+
     /**
      * @param string $key
      * @param string $fileUrl

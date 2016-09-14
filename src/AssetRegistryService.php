@@ -11,7 +11,13 @@ class AssetRegistryService
 
     public function __construct()
     {
+        if (!class_exists('WP_List_Table')) {
+
+            require_once(ABSPATH . 'wp-admin/includes/class-wp-list-table.php');
+        }
+
         add_action('admin_menu', array($this, 'settingsPage'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_assets'));
 
         $this->assetRegistry = new AssetRegistry($this->getConfig());
     }
@@ -30,6 +36,19 @@ class AssetRegistryService
         );
     }
 
+    public function enqueue_assets()
+    {
+        foreach ($this->assetRegistry->getJsAssetList() as $handle => $source) {
+
+            wp_register_script($handle, $source);
+        }
+
+        foreach ($this->assetRegistry->getCssAssetList() as $handle => $source) {
+
+            wp_register_style($handle, $source);
+        }
+    }
+
     /**
      * @return string
      */
@@ -42,8 +61,22 @@ class AssetRegistryService
             );
         }
 
-        $assets = $this->assetRegistry->getAssetList();
-        return include __DIR__ . '/../view/settings.phtml';
+        $myListTable = new AssetTable();
+
+        $myListTable->addData(
+            $this->assetRegistry->getRegisteredJsAssets(),
+            'Javascript'
+        );
+        $myListTable->addData(
+            $this->assetRegistry->getRegisteredCssAssets(),
+            'Stylesheet'
+        );
+
+        echo '<div class="wrap"><h2>Registered Assets</h2>';
+
+        $myListTable->prepare_items();
+        $myListTable->display();
+        echo '</div>';
     }
 
     /**

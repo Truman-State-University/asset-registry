@@ -1,0 +1,69 @@
+<?php
+/**
+ * @var array $assets
+ */
+global $wp_scripts;
+global $wp_styles;
+?>
+<h1>Asset Registry Settings</h1>
+
+<h3>Javascript Files</h3>
+<table class="form-table">
+    <tbody>
+        <?php foreach ($assets['javascript'] as $key => $fileUrl): ?>
+            <tr>
+                <td>
+                    <label>
+                        <strong>
+                            <?= $key ?>
+                        </strong>
+                    </label>
+                </td>
+                <td><?= $fileUrl ?></td>
+            </tr>
+        <?php endforeach; ?>
+        <?php foreach ($wp_scripts->registered as $asset): ?>
+            <tr>
+                <td>
+                    <label>
+                        <strong>
+                            <?= $asset->handle ?>
+                        </strong>
+                    </label>
+                </td>
+                <td><?= $asset->src ?></td>
+            </tr>
+        <?php endforeach; ?>
+    </tbody>
+</table>
+
+
+<h3>Stylesheets</h3>
+<table class="form-table">
+    <tbody>
+    <?php foreach ($assets['stylesheet'] as $key => $fileUrl): ?>
+        <tr>
+            <td>
+                <label>
+                    <strong>
+                        <?= $key ?>
+                    </strong>
+                </label>
+            </td>
+            <td><?= $fileUrl ?></td>
+        </tr>
+    <?php endforeach; ?>
+    <?php foreach ($wp_styles->registered as $asset): ?>
+        <tr>
+            <td>
+                <label>
+                    <strong>
+                        <?= $asset->handle ?>
+                    </strong>
+                </label>
+            </td>
+            <td><?= $asset->src ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

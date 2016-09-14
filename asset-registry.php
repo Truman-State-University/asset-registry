@@ -13,4 +13,4 @@
 require_once "vendor/autoload.php";
 
 // Instantiate any objects that you need
-$example = new \AssetRegistryPlugin\AssetRegistry();
+$example = new \AssetRegistryPlugin\AssetRegistryService();

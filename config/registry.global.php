@@ -1,4 +1,8 @@
 <?php
+/**
+ * @author Curtis Kelsey <kelseyc@truman.edu>
+ * @copyright Copyright (c) Truman State University
+ */
 use AssetRegistryPlugin\Constants;
 
 return array(

@@ -1,7 +1,7 @@
 <?php
 /**
  * @author Curtis Kelsey <kelseyc@truman.edu>
- * @copyright Truman State University
+ * @copyright Copyright (c) Truman State University
  */
 namespace AssetRegistryPlugin;
 

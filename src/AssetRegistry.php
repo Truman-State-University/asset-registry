@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @author Curtis Kelsey <kelseyc@truman.edu>
+ * @copyright Copyright (c) Truman State University
+ */
 namespace AssetRegistryPlugin;
 
 /**
@@ -106,7 +109,7 @@ class AssetRegistry
      */
     protected function normalizePath($path)
     {
-        if (substr($path, 0, 4) !== 'http') {
+        if (substr($path, 0, 4) !== 'http' || substr($path, 0, 2) !== '//') {
 
             return plugin_dir_url(__FILE__) . $path;
         }

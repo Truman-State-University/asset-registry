@@ -1,6 +1,6 @@
 {
     "name": "its-web-wordpress/asset-registry-plugin",
-    "description": "Provides a registry of CSS and Javascript assets.",
+    "description": "Provides a registry of CSS and Javascript assets for WordPress.",
     "minimum-stability": "stable",
     "license": "BSD 3",
     "authors": [

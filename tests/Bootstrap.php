@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @author Curtis Kelsey <kelseyc@truman.edu>
+ * @copyright Copyright (c) Truman State University
+ */
 $_tests_dir = getenv('WP_TESTS_DIR');
 if ( !$_tests_dir ) $_tests_dir = '/var/lib/wordpress/trunk';
 
